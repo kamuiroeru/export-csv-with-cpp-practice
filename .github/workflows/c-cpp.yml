@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Make
+      run: make all
+    - name: Run Binary
+      run: ./export_csv
+    - name: Copy CSV Files
+      uses: actions/upload-artifact@v3
+      with:
+        name: generated-csvs
+        path: |
+          ./example.csv
