@@ -17,11 +17,9 @@ jobs:
       run: make all
     - name: Run Binary
       run: ./export_csv
-    - name: Show CSV
-      run: cat ./example.csv
     - name: Copy CSV Files
       uses: actions/upload-artifact@v3
       with:
-        name: dist-without-markdown
+        name: generated-csvs
         path: |
           ./example.csv
