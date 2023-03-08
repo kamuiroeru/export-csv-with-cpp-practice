@@ -27,11 +27,8 @@ $(TARGET): $(OBJS)
 $(OBJS): $(SRCS)
 	$(CC) $(CFLAGS) $(INCDIR) -c $(SRCS)
 
-run: $(TARGET)
-	$(TARGET)
-
 # (11)"make all"で make cleanとmakeを同時に実施。
-all: clean $(OBJS) $(TARGET) run
+all: clean $(OBJS) $(TARGET)
 # (12).oファイル、実行ファイル、.dファイルを削除
 clean:
 	-rm -f $(OBJS) $(TARGET) *.d example.csv
